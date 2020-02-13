@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110342383-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158310206-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cluster - No Bugs</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="nav-links">
+                <div class="left">
+                    <a onclick="mostrar('#wrapper-calculadora', '#secao-tabela')">Início</a>
+                    <a onclick="mostrar('#secao-tabela','#wrapper-calculadora');">Tabela de Clusters</a>
+                </div>
+                <div class="right">
+                    <a class="button pedir-site" href="#" target="_blank">Pedir um site</a>
+                    <a class="button nossos-servicos" href="https://github.com/guidiasz" target="_blank">Nossos
+                        Serviços</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="secao-calculadora">
+            <div id="wrapper-calculadora">
+                <h1>Calculadora de Cluster</h1>
+                <h2>Insira os dados pedidos abaixo:</h2>
+                <form action="javascript:submit();" class="form-calculadora">
+                    <div class="colunas">
+                        <div class="coluna">
+                            <label for="membros">Numero de membros:</label>
+                            <input type="number" id="membros" placeholder="Ex: 39" min="0" required>
+
+                            <label for="membrosProjetos">Membros executando projetos:</label>
+                            <div class="porcento"> 
+                                <input type="number" id="membrosProjetos" max="100" min="0" placeholder="Ex: 82%" required>
+                            </div>
+                        </div>
+                        <div class="coluna">                          
+                            <label for="faturamento">Faturamento:</label>
+                            <input type="number" id="faturamento" placeholder="Ex: 31059,80" min="0" step="any"
+                                required>
+
+                            <label for="nps">NPS:</label>
+                            <input type="number" id="nps" min="-100" max="100" placeholder="De -100 a 100" required>
+                        </div>
+                    </div>
+                    <input type="submit" class="button botao-calcular" value="Calcular">
+                </form>
+                <div id="resultado">
+                    <p>Seu cluster é:</p>
+                    <div id="cluster"></div>
+                    <p>Sua pontuação é:</p>
+                    <div id="pontuacao"></div>
+                    <p>Pontos para o próximo cluster:</p>
+                    <div id="faltam-proximo-cluster">123142142</div>
+                    <a onclick="mostrar('#secao-tabela','#wrapper-calculadora');">Ver tabela de clusters</a>
+                </div>
+            </div>
+            <div id="secao-tabela">
+                <a onclick="mostrar('#wrapper-calculadora', '#secao-tabela');" class="voltar">&lt Voltar</a>
+                <h1>Tabela de Clusters</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cluster</th>
+                            <th>Régua</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>
+                                <p title="Até 26320,55">Até 26.320,55</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>
+                                <p title="26320,56 a 73950,00">26.320,56 a 73.950,00</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>
+                                <p title="73950,01 a 166666,71">73.950,01 a 166.666,71</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>
+                                <p title="166666,72 a 389536,50">166.666,72 a 389.536,50</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>
+                                <p title="acima de 389536,51">Acima de 389.536,51</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    
+    <script src="assets/js/calculaPontuacao.js"></script>
+    <script src="assets/js/defineCluster.js"></script>
+    <script src="assets/js/evento.js"></script>
+    <script src="assets/js/mostrar.js"></script>
+    <script src="assets/js/porcentoEdge.js"></script>
+    <script src="assets/js/submit.js"></script>
+</body>
+
+</html>
